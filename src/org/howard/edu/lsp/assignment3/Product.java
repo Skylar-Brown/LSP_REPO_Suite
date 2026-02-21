@@ -1,23 +1,26 @@
 package org.howard.edu.lsp.assignment3;
 
+import java.math.BigDecimal;
+
 /**
- * Represents a product record read from the input file.
+ * Represents a product record from products.csv.
+ * Encapsulates fields so parsing and transformation logic can be separated.
  */
 public class Product {
   private final String productId;
   private final String name;
-  private final String price;
+  private final BigDecimal price;
   private final String category;
 
   /**
-   * Constructs a Product with raw string fields (already trimmed).
+   * Constructs a Product.
    *
-   * @param productId product ID string
-   * @param name product name string
-   * @param price price string
-   * @param category category string
+   * @param productId ProductID as a String (validated elsewhere)
+   * @param name product name
+   * @param price product price
+   * @param category product category
    */
-  public Product(String productId, String name, String price, String category) {
+  public Product(String productId, String name, BigDecimal price, String category) {
     this.productId = productId;
     this.name = name;
     this.price = price;
@@ -32,7 +35,7 @@ public class Product {
     return name;
   }
 
-  public String getPrice() {
+  public BigDecimal getPrice() {
     return price;
   }
 
