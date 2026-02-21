@@ -101,7 +101,7 @@ public class CsvProductReader {
           continue;
         }
 
-        // Try parse ProductID and Price
+        // Parse ProductID and Price
         try {
           Integer.parseInt(fields[0]); // ProductID
           BigDecimal price = new BigDecimal(fields[2]); // Price
