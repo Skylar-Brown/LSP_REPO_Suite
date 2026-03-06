@@ -1,0 +1,143 @@
+CRC Card
+Class: TransponderReciever
+Responsibilities:
+- Listen for incoming aircraft transponder broadcasts
+- Receive raw high-density flight packets
+- Forward received packets for decoding
+Collaborators (if any):
+- PacketDecoder
+Assumptions (if any):
+- Each aircraft broadcasts continuously while airborne 
+
+CRC Card
+Class: PacketDecoder
+Responsibilities:
+- Unpack raw transponder packets into structured flight data
+- Parse aircraft type, identification code, altitude, speed, heading, and position
+- Validate decoded data for completeness and format integrity
+- Forward decoded FlightData records to AircarftDatabase
+Collaborators (if any):
+- TransponderReciever
+- FlightData
+- AircraftDatabse
+Assumptions (if any):
+- The packet format for aircraft data is predefined and consistent.
+
+CRC Card
+Class: Flight Data
+Responsibilities:
+- Store a single aircraft's flight attributes (ID, type,altitude,speed,heading,position)
+- Provide access to aircraft flight information
+- Represent one aircraft's current flight state
+Collaborators (if any):
+- PacketDecoder
+- AircraftDatabase
+- SafetyAnalyzer
+Assumptions (if any):
+- Each aircraft broadcast contains a unique identifier.
+
+CRC Card
+Class: AircraftDatabase
+Responsibilities:
+- Store and maintain the current FlightData record for every aircraft
+- Update aircraft information when new flight data arrives
+- Retrieve aircraft information for display and queries
+Collaborators (if any):
+- FlightData
+- PacketDecoder
+- RadarScreen
+- DisplayCOntroller
+- SafteyAnalyzer
+- QueryHandler
+Assumptions (if any):
+- The database stores the most recent state of each aircraft.
+
+CRC Card
+Class: DisplayController
+Responsibilities:
+- Trigger a full radar display refresh every 10 seconds
+- Retrieve all current FlightData records from AircraftDatabase
+- Send the updated scene to RadarScreen for rendering
+Collaborators (if any):
+- AircraftDatabase
+- RadarScreen
+Assumptions (if any):
+- Display refresh intervals are fixed at 10 seconds.
+
+CRC Card
+Class: RadarScreen
+Responsibilities:
+- Render aircraft positions as labled blips
+- Display alerts and warnings on the graphical interface
+- Update the radar display based on the latest aircraft data
+Collaborators (if any):
+- DisplayController
+- AircraftDatabase
+- DangerAlert
+Assumptions (if any):
+- Each aircraft is represented by a single graphical symbol on the radar screen.
+
+CRC Card
+Class: SafetyAnalyzer
+Responsibilities:
+- Analyze all current FlightData records to detect dangerous situations
+- Evaluate aircrfat separation distances and trajectories
+- Generate alerts when safety thresholds are violated
+Collaborators (if any):
+- AircraftDatabase
+- FlightData
+- DangerAlert
+Assumptions (if any):
+- Safety rules define minimum safe distances between aircraft.
+
+CRC Card
+Class: DangerAlert
+Responsibilities:
+- Represent a detected hazardous situation
+- Store details of a detected dangerous situation (type, severity, involved aircraft IDs)
+- Track whether the alert has been acknowledged by the controller
+Collaborators (if any):
+- SafetyAnalyzer
+- AlertNotifier
+- RadarScreen
+Assumptions (if any):
+- Alerts include the involved aircraft IDs and the type of hazard detected.
+
+CRC Card
+Class: AlertNotifier
+Responsibilities:
+- Receive active DangerAlerts from SafetyAnalyzer and display alert summary messages on ControllerConsole
+- Trigger an audible or visual alarms
+- Manage acknowledgment of alerts by the controller
+Collaborators (if any):
+- DangerAlert
+- ControllerConsole
+Assumptions (if any):
+- Alerts remain active until acknowledged by the controller.
+
+CRC Card
+Class: QueryHandler
+Responsibilities:
+- Accept detail query requests from ControllerConsole for a specified aircraft
+- Retrieve aircraft details from the aircraft database
+- Return formatted aircraft information for display
+Collaborators (if any):
+- AircraftDatabase
+- ControllerConsole
+- FlightData
+Assumptions (if any):
+- Queries are based on selecting an aircraft shown on the radar screen.
+
+CRC Card
+Class: ControllerConsole
+Responsibilities:
+- Provide the controller interface for monitoring aircraft
+- Display alerts and aircraft information
+- Accept controller input such as queries or acknowledgments
+Collaborators (if any):
+- QueryHandler
+- AlertNotifier
+- RadarScreen
+Assumptions (if any):
+- The console acts as the primary interface used by the air traffic controller.
+
