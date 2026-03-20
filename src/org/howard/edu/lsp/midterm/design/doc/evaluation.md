@@ -1,0 +1,9 @@
+# Evaluation of OrderProcessor Design
+
+The `OrderProcessor` class has several object-oriented design problems because it takes on too many responsibilities in a single class. It stores order data, calculates tax, prints a receipt, writes to a file, applies discounts, sends a confirmation message, and logs activity. This creates a design with low cohesion because one class is trying to manage many unrelated tasks instead of focusing on a single clear responsibility.
+
+The class also has poor encapsulation because its data fields (`customerName`, `email`, `item`, and `price`) are public. This allows outside code to change the object's state directly, making the class harder to control and more error-prone. A better design would keep fields private and provide methods to access or update them safely.
+
+Another issue is that the class is tightly coupled to specific implementation details. For example, it directly writes to a file using `FileWriter`, directly prints to the console, and directly handles email confirmation behavior. If the system later changes to save orders in a database, send real emails, or generate receipts in another format, this class would need to be modified in several places. That makes the design harder to maintain and extend.
+
+The discount logic is also placed in the middle of order processing, which mixes business rules with input/output behavior. If discount rules become more complex, the method will grow even larger and harder to manage. In general, the `processOrder()` method does too much, which makes it difficult to test, reuse, and update. A stronger object-oriented design would separate these responsibilities across multiple classes that collaborate with each other.
