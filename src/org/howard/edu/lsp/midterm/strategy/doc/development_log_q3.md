@@ -1,11 +1,9 @@
 # Development Log for Question 3
 
-## Resource 1
-- **Resource Used:** ChatGPT
-- **What I asked/searched:** I asked for help evaluating the design of the provided `PriceCalculator` class and refactoring it using the Strategy Pattern.
-- **How it helped:** It helped me identify why the original design was hard to extend and showed how to separate pricing behavior into different strategy classes.
-
 ## Resource 2
-- **Resource Used:** Assignment prompt and lecture notes
-- **What I asked/searched:** I reviewed the assignment requirements and notes about the Strategy Pattern.
-- **How it helped:** This helped me make sure the implementation matched the required package structure, output, and design pattern expectations.
+- https://www.geeksforgeeks.org/strategy-design-pattern-in-java/
+- Provided an example of the Strategy Pattern in Java and how to separate behavior into different strategy classes.
+
+## Resource 3
+- https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html
+- Helped confirm how to define and use interfaces in Java for implementing the DiscountStrategy.
