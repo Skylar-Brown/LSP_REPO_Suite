@@ -1,6 +1,8 @@
-AI Usage Report
-Assignment: HW 5 – IntegerSet Implementation
-AI Tools Used
+# AI Usage Report
+## Assignment: HW 5 – IntegerSet Implementation
+
+
+### AI Tools Used
 
 Claude (Anthropic) – https://claude.ai
 
@@ -10,7 +12,7 @@ Helped set up JUnit 5 by identifying that the JUnit library was missing and prov
 
 
 
-External References
+### External References
 
 Java ArrayList Documentation – https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html
 
