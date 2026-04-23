@@ -1,0 +1,5 @@
+# Question 4
+
+My perspective on using AI in programming has changed significantly over the semester. At the beginning, I viewed AI mostly as a shortcut for generating code, but through this course I learned that it is much more valuable as a learning and debugging tool. For example, I used AI to better understand concepts like concurrency, package structure, and JUnit testing rather than just copying solutions. This helped me understand why certain approaches work, such as how race conditions occur or how test cases should be structured for edge cases.
+
+In the future, I plan to use AI as a support tool to improve my efficiency and deepen my understanding of complex topics. I will use it to debug errors, clarify concepts, and verify my logic, but not as a replacement for my own thinking. This course showed me that AI is most effective when combined with my own problem-solving process, allowing me to learn faster while still maintaining strong foundational skills in programming.
